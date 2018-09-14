@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">News</string>
+    <string name="news_api_key">c63cb6b1ed8347afbed03d4f249f56ff</string>
+    <string name="loading">loading</string>
+    <string name="news_error">Something went wrong, please try again later.</string>
+    <string name="no_news">No news here!</string>
+    <string name="all_news">All news</string>
+    <string name="favorite_news">Favorite news</string>
+</resources>
