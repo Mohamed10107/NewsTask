@@ -5,8 +5,11 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 import com.amulyakhare.textdrawable.TextDrawable;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.model.GlideUrl;
+import com.bumptech.glide.load.model.LazyHeaders;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.rayehtask.view.LoadingDialog;
-import com.squareup.picasso.Picasso;
 
 public class Views
 {
@@ -46,9 +49,14 @@ public class Views
 
 	public static class ImageLoader
 	{
-		public static void load(Context context, ImageView imageView, String imagePath, Drawable placeHolder)
+		public static void load(Context context, String imageURl, String auth, ImageView imageView, Drawable placeHolder)
 		{
-			Picasso.with(context).load(imagePath).placeholder(placeHolder).into(imageView);
+			Glide.with(context).load(new GlideUrl(imageURl, new LazyHeaders.Builder().addHeader("Authorization", auth).build())).thumbnail(0.1f).apply(new RequestOptions().placeholder(placeHolder)).into(imageView);
+		}
+
+		public static void load(Context context, String imagePath, ImageView imageView, Drawable placeHolder)
+		{
+			Glide.with(context).load(imagePath).thumbnail(0.1f).apply(new RequestOptions().placeholder(placeHolder)).into(imageView);
 		}
 	}
 }

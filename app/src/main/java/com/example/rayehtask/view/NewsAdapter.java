@@ -28,7 +28,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 		this.listener = listener;
 	}
 
-	public void setData(ArrayList<News> news)
+	void setData(ArrayList<News> news)
 	{
 		this.news = new ArrayList<>();
 		this.news.addAll(news);
@@ -55,7 +55,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 		viewHolder.pic.setImageDrawable(Views.TextDrawableView.textDrawable(60, 60, "G"));
 		if (newsItem.urlToImage != null && !newsItem.urlToImage.isEmpty())
 		{
-			Views.ImageLoader.load(context, viewHolder.pic, newsItem.urlToImage, Views.TextDrawableView.textDrawable(60, 60, "G"));
+			Views.ImageLoader.load(context, newsItem.urlToImage, viewHolder.pic, Views.TextDrawableView.textDrawable(60, 60, "G"));
 		}
 
 		if (newsItem.favorite == News.NOT_FAVORITE)
